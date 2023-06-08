@@ -10,6 +10,7 @@ const mockRouter = { push: jest.fn() };
 
 describe("MyComponent", () => {
   beforeEach(() => {
+    useRouter.mockReset();
     useRouter.mockReturnValue(mockRouter);
   });
 

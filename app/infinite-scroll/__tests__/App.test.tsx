@@ -14,9 +14,11 @@ describe("<App />", () => {
   beforeEach(() => {
     mockedUseUsersQuery.mockImplementation(() => ({ isLoading: true }));
   });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
+
   it("Renders without crashing", () => {
     render(<App />);
   });
