@@ -12,16 +12,18 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.12",
+    "@tanstack/react-query-devtools": "^4.29.12",
     "axios": "^1.4.0",
     "dotenv": "^16.1.4",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-infinite-scroll-component": "^6.1.0",
-    "react-query": "^3.39.3"
+    "react-infinite-scroll-component": "^6.1.0"
   },
   "devDependencies": {
     "@heroicons/react": "^1.0.6",
+    "@tanstack/eslint-plugin-query": "^4.29.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
