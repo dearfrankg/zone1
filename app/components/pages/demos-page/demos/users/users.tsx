@@ -1,6 +1,12 @@
 "use client";
+import "./users.css";
 import React, { useState } from "react";
-import { useQuery, useMutation, QueryClient, QueryClientProvider } from "react-query";
+import {
+  useQuery,
+  useMutation,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import { Form, Input, Button, Table, Modal } from "antd";
 
 const queryClient = new QueryClient();
@@ -30,15 +36,18 @@ const Users = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  const { data: users, isLoading } = useQuery("users", getUsers);
+  const { data: users, isLoading } = useQuery(["users"], getUsers);
 
-  const updateUserMutation = useMutation((values: any) => updateUser(selectedUser.id, values), {
-    onSuccess: () => {
-      setModalVisible(false);
-      form.resetFields();
-      queryClient.invalidateQueries("users");
-    },
-  });
+  const updateUserMutation = useMutation(
+    (values: any) => updateUser(selectedUser.id, values),
+    {
+      onSuccess: () => {
+        setModalVisible(false);
+        form.resetFields();
+        queryClient.invalidateQueries(["users"]);
+      },
+    }
+  );
 
   const handleRowClick = (record: any) => {
     setSelectedUser(record);
@@ -67,11 +76,17 @@ const Users = () => {
         columns={columns}
         loading={isLoading}
         rowKey="id"
+        style={{ cursor: "pointer" }}
         onRow={(record) => ({
           onClick: () => handleRowClick(record),
         })}
       />
-      <Modal title="Edit User" open={modalVisible} onOk={form.submit} onCancel={handleModalClose}>
+      <Modal
+        title="Edit User"
+        open={modalVisible}
+        onOk={form.submit}
+        onCancel={handleModalClose}
+      >
         <Form form={form} onFinish={handleFormSubmit} layout="vertical">
           <Form.Item
             name="name"
@@ -88,7 +103,11 @@ const Users = () => {
             <Input />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={updateUserMutation.isLoading}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={updateUserMutation.isLoading}
+            >
               Save
             </Button>
           </Form.Item>

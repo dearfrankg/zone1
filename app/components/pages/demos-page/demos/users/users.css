@@ -1,0 +1,9 @@
+/*
+tailwind and antd not playing together
+https://stackoverflow.com/questions/71715157/tailwinds-ant-design-button-color-is-white-but-has-own-color-wnen-i-hover-it
+*/
+
+.ant-btn:not([disabled]) {
+  background: rgb(84, 122, 246) !important;
+  color: white;
+}

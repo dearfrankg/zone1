@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { DatePicker, message } from "antd";
-import "antd/dist/reset.css";
 
 /*
   message user when incomplete range
 */
 
-const RangeDatePicker = () => {
+export default function RangePicker() {
   const [selectedRange, setSelectedRange] = useState(null);
 
   const handleDateChange = (dates: any) => {
@@ -25,18 +24,13 @@ const RangeDatePicker = () => {
   };
 
   return (
-    <div className="w-1/2 h-1/2 m-auto p-8 space-y-8">
-      <h1 className="text-2xl font-medium">RangePicker Demo</h1>
-      <DatePicker.RangePicker
-        format="YYYY-MM-DD"
-        onChange={handleDateChange}
-        onOpenChange={handlePickerOpenChange}
-        allowClear={false}
-        showTime={false}
-        value={selectedRange}
-      />
-    </div>
+    <DatePicker.RangePicker
+      format="YYYY-MM-DD"
+      onChange={handleDateChange}
+      onOpenChange={handlePickerOpenChange}
+      allowClear={false}
+      showTime={false}
+      value={selectedRange}
+    />
   );
-};
-
-export default RangeDatePicker;
+}

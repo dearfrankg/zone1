@@ -31,7 +31,10 @@ const LoginForm = () => {
 
       <form className="w-full max-w-sm  bg-gray-700  shadow-md rounded px-8 pt-6 pb-8 mx-auto">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="email"
+          >
             Email
           </label>
           <Input
@@ -44,7 +47,10 @@ const LoginForm = () => {
         </div>
 
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="password"
+          >
             Password
           </label>
           <Input.Password

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { useUsersQuery } from "../useInfiniteQuery";
-import App from "../page";
+import App from "../infinite-scroll";
 import { responseForPage0 } from "../fixtures";
 
 // Make TypeScript Happy, by resolving TS errors
@@ -60,7 +60,9 @@ describe("<App />", () => {
     }));
     render(<App />);
     expect(
-      screen.getByText(`${responseForPage0.data[0].firstName} ${responseForPage0.data[0].lastName}`)
+      screen.getByText(
+        `${responseForPage0.data[0].firstName} ${responseForPage0.data[0].lastName}`
+      )
     ).toBeInTheDocument();
   });
 });

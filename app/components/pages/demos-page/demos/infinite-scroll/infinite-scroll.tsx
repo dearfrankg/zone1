@@ -2,7 +2,7 @@
 
 import "./index.css";
 import React from "react";
-import { QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import reactQueryClient from "./queryClient";
 import CreateUser from "./CreateUser";
 import { useUsersQuery } from "./useInfiniteQuery";
@@ -29,7 +29,11 @@ const App = () => {
     <div style={{ margin: "20px" }}>
       <h1>Users List</h1>
       <div
-        style={{ border: "1px solid #ccc", height: "400px", overflow: "scroll" }}
+        style={{
+          border: "1px solid #ccc",
+          height: "400px",
+          overflow: "scroll",
+        }}
         id="scrollbar-target"
       >
         <InfiniteScroll
@@ -37,7 +41,13 @@ const App = () => {
           next={fetchNextPage}
           hasMore={!!hasNextPage}
           loader={
-            <p style={{ color: "deepskyblue", fontSize: "20px", textAlign: "center" }}>
+            <p
+              style={{
+                color: "deepskyblue",
+                fontSize: "20px",
+                textAlign: "center",
+              }}
+            >
               <b>Loading...</b>
             </p>
           }

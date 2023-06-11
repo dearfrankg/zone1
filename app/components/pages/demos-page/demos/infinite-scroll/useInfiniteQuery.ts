@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from "react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 // Import axiosClient
 import axiosClient from "./axiosClient";
 import { UsersPage } from "./types";
@@ -25,7 +25,7 @@ export async function getData({ pageParam = 0 }) {
 }
 
 export const useUsersQuery = () => {
-  const query = useInfiniteQuery<UsersPage, Error>("users", getData, {
+  const query = useInfiniteQuery<UsersPage, Error>(["users"], getData, {
     getNextPageParam: (lastPage) => lastPage.next,
   });
 
