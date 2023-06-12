@@ -1,64 +1,52 @@
 "use client";
 import { useState } from "react";
 import { Header, Menu } from "/app/components";
-import {
-  LoginForm,
-  Users,
-  MockRouter,
-  RangePicker,
-  InfiniteScroll,
-  ReactQueryDemo1,
-} from "../demos";
+import { collection, collectionFilter } from "../demo-data";
+import { Select } from "antd";
 
-const collection = [
-  {
-    title: "Infinite Scroll demo",
-    description:
-      "A demonstration of using react query to load an infinite scroller.",
-    component: InfiniteScroll,
-  },
-  {
-    title: "Login Form demo",
-    description: "A demo of react, tailwind and antd complete with tests",
-    component: LoginForm,
-  },
-  {
-    title: "Mock Router demo",
-    description: "A demo of using the nextjs 13 router and how to mock it",
-    component: MockRouter,
-  },
-  {
-    title: "RangePicker demo",
-    description: "A demo triggering a message when ant RangePicker is invalid",
-    component: RangePicker,
-  },
-  {
-    title: "React Query demo1",
-    description: "A demo of listing and creating records using a mock api",
-    component: ReactQueryDemo1,
-  },
-  {
-    title: "Manage Users demo",
-    description:
-      "A demo managing users using ant table and modal as well as react-query",
-    component: Users,
-  },
-];
+const splash = {
+  title: "Demo Collection",
+  description:
+    "A collection of demos that show how to modern web tools in 2023",
+  component: () => null,
+};
 
 export default function DemosPage() {
-  const [index, setIndex] = useState(0);
+  const [menuFilter, setMenuFilter] = useState([]);
+  const [menuIndex, setMenuIndex] = useState(-1);
 
-  const { title, description, component: Component } = collection[index];
+  const {
+    title,
+    description,
+    component: Component,
+  } = collection[menuIndex] || splash;
 
-  const handleMenuClick = (index: number) => {
-    console.log("index: ", index);
-    setIndex(index);
+  const handleMenuClick = (menuIndex: number) => {
+    setMenuIndex(menuIndex);
   };
+
+  const handleChangeFilter = (value: any) => {
+    setMenuIndex(0);
+    setMenuFilter(value);
+  };
+
+  const filteredCollection = collection.filter((item: any) => {
+    return menuFilter.every((filter: any) => item.tags.includes(filter));
+  });
 
   return (
     <div className="flex w-3/4 m-8 p-4 mx-auto border-indigo-500 border-2">
-      <div className="w-1/4 p-4">
-        <Menu {...{ collection, handleMenuClick }} />
+      <div className="w-1/4 p-4 space-y-4">
+        <Select
+          mode="multiple"
+          allowClear
+          className="w-full"
+          placeholder="Menu filter"
+          defaultValue={menuFilter}
+          onChange={handleChangeFilter}
+          options={collectionFilter}
+        />
+        <Menu {...{ collection: filteredCollection, handleMenuClick }} />
       </div>
       <div className="w-3/4 p-4">
         <main className="w-3/4 mx-auto p-8 ">
