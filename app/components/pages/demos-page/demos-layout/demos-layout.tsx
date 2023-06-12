@@ -8,6 +8,7 @@ const splash = {
   title: "Demo Collection",
   description:
     "A collection of demos that show how to modern web tools in 2023",
+  tags: [],
   component: () => null,
 };
 
@@ -31,6 +32,7 @@ export default function DemosPage() {
   const {
     title,
     description,
+    tags,
     component: Component,
   } = filteredCollection[menuIndex] || splash;
 
@@ -50,7 +52,7 @@ export default function DemosPage() {
       </div>
       <div className="w-3/4 p-4">
         <main className="w-3/4 mx-auto p-8 ">
-          <Header {...{ title, description }} />
+          <Header {...{ title, description, tags }} />
           <Component />
         </main>
       </div>
