@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Header, Menu } from "/app/components";
-import { collection, collectionFilter } from "../demo-data";
+import { collection, collectionFilter } from "./demo-data";
 import { Select } from "antd";
 
 const splash = {
@@ -15,12 +15,6 @@ export default function DemosPage() {
   const [menuFilter, setMenuFilter] = useState([]);
   const [menuIndex, setMenuIndex] = useState(-1);
 
-  const {
-    title,
-    description,
-    component: Component,
-  } = collection[menuIndex] || splash;
-
   const handleMenuClick = (menuIndex: number) => {
     setMenuIndex(menuIndex);
   };
@@ -33,6 +27,12 @@ export default function DemosPage() {
   const filteredCollection = collection.filter((item: any) => {
     return menuFilter.every((filter: any) => item.tags.includes(filter));
   });
+
+  const {
+    title,
+    description,
+    component: Component,
+  } = filteredCollection[menuIndex] || splash;
 
   return (
     <div className="flex w-3/4 m-8 p-4 mx-auto border-indigo-500 border-2">

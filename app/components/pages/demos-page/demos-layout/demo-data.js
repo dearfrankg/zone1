@@ -5,7 +5,7 @@ import {
   RangePicker,
   InfiniteScroll,
   ReactQueryDemo1,
-} from "./demos";
+} from "../demos";
 
 export const collectionFilter = [
   { label: "Nextjs 13", value: "nextjs-13" },
