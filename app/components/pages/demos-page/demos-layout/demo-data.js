@@ -19,38 +19,38 @@ export const collectionFilter = [
 
 export const collection = [
   {
-    title: "Infinite Scroll demo",
+    title: "Infinite Scroll",
     description:
       "A demonstration of using react query to load an infinite scroller.",
     component: InfiniteScroll,
     tags: ["nextjs-13", "react", "react-query", "rtl"],
   },
   {
-    title: "Login Form demo",
+    title: "Login Form",
     description: "A demo of react, tailwind and antd complete with tests",
     component: LoginForm,
     tags: ["nextjs-13", "react", "tailwind", "rtl", "antd"],
   },
   {
-    title: "Mock Router demo",
+    title: "Mock NextJS Router",
     description: "A demo of using the nextjs 13 router and how to mock it",
     component: MockRouter,
     tags: ["nextjs-13", "react", "rtl", "test-nextjs-router"],
   },
   {
-    title: "RangePicker demo",
+    title: "RangePicker",
     description: "A demo triggering a message when ant RangePicker is invalid",
     component: RangePicker,
     tags: ["nextjs-13", "react", "antd"],
   },
   {
-    title: "React Query demo1",
+    title: "React Query",
     description: "A demo of listing and creating records using a mock api",
     component: ReactQueryDemo1,
     tags: ["nextjs-13", "react", "tailwind", "react-query"],
   },
   {
-    title: "Manage Users demo",
+    title: "Manage Users",
     description:
       "A demo managing users using ant table and modal as well as react-query",
     component: Users,
