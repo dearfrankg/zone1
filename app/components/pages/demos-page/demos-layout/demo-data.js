@@ -12,7 +12,7 @@ export const collectionFilter = [
   { label: "Nextjs 13", value: "nextjs-13" },
   { label: "React", value: "react" },
   { label: "Tailwind", value: "tailwind" },
-  { label: "React Query", value: "react-query" },
+  { label: "Tanstack Query", value: "@tanstack/query" },
   { label: "React Testing Library", value: "rtl" },
   { label: "Ant Design Components", value: "antd" },
   { label: "Test Nextjs Router", value: "test-nextjs-router" },
@@ -21,9 +21,9 @@ export const collectionFilter = [
 export const collection = [
   {
     title: "Infinite Scroll",
-    description: "React query loading an infinite scroller.",
+    description: "Load an infinite scroller with @tanstack/query",
     component: InfiniteScroll,
-    tags: ["nextjs-13", "react", "react-query", "rtl"],
+    tags: ["nextjs-13", "react", "@tanstack/query", "rtl"],
   },
   {
     title: "Login Form",
@@ -46,23 +46,23 @@ export const collection = [
     tags: ["nextjs-13", "react", "antd"],
   },
   {
-    title: "React Query",
-    description: "Using @tanstack/query to query and mutate blog posts",
+    title: "Manage Blog Posts",
+    description: "Query and Mutate blog posts with @tanstack/query",
     component: ReactQueryDemo1,
-    tags: ["nextjs-13", "react", "tailwind", "react-query"],
+    tags: ["nextjs-13", "react", "tailwind", "@tanstack/query"],
   },
   {
     title: "Manage Users",
     description:
       "Using ant components to query and mutate users with @tanstack/query",
     component: Users,
-    tags: ["nextjs-13", "react", "react-query", "antd"],
+    tags: ["nextjs-13", "react", "@tanstack/query", "antd"],
   },
   {
     title: "React 18 Batching",
     description:
       "Watch how React 18 batches many set state calls and only renders once",
     component: React18Batching,
-    tags: ["nextjs-13", "react", "react-query"],
+    tags: ["nextjs-13", "react"],
   },
 ];
