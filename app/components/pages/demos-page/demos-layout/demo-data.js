@@ -5,6 +5,7 @@ import {
   RangePicker,
   InfiniteScroll,
   ReactQueryDemo1,
+  React18Batching,
 } from "../demos";
 
 export const collectionFilter = [
@@ -20,40 +21,48 @@ export const collectionFilter = [
 export const collection = [
   {
     title: "Infinite Scroll",
-    description:
-      "A demonstration of using react query to load an infinite scroller.",
+    description: "React query loading an infinite scroller.",
     component: InfiniteScroll,
     tags: ["nextjs-13", "react", "react-query", "rtl"],
   },
   {
     title: "Login Form",
-    description: "A demo of react, tailwind and antd complete with tests",
+    description:
+      "A login form demo that uses antd and tailwind dark mode complete with tests",
     component: LoginForm,
     tags: ["nextjs-13", "react", "tailwind", "rtl", "antd"],
   },
   {
     title: "Mock NextJS Router",
-    description: "A demo of using the nextjs 13 router and how to mock it",
+    description: "Tests that mock the nextjs 13 router",
     component: MockRouter,
     tags: ["nextjs-13", "react", "rtl", "test-nextjs-router"],
   },
   {
     title: "RangePicker",
-    description: "A demo triggering a message when ant RangePicker is invalid",
+    description:
+      "Using the antd RangePicker to message the user when the range is inalid ",
     component: RangePicker,
     tags: ["nextjs-13", "react", "antd"],
   },
   {
     title: "React Query",
-    description: "A demo of listing and creating records using a mock api",
+    description: "Using @tanstack/query to query and mutate blog posts",
     component: ReactQueryDemo1,
     tags: ["nextjs-13", "react", "tailwind", "react-query"],
   },
   {
     title: "Manage Users",
     description:
-      "A demo managing users using ant table and modal as well as react-query",
+      "Using ant components to query and mutate users with @tanstack/query",
     component: Users,
     tags: ["nextjs-13", "react", "react-query", "antd"],
+  },
+  {
+    title: "React 18 Batching",
+    description:
+      "Watch how React 18 batches many set state calls and only renders once",
+    component: React18Batching,
+    tags: ["nextjs-13", "react", "react-query"],
   },
 ];
