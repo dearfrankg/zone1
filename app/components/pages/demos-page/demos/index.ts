@@ -5,3 +5,5 @@ export { default as RangePicker } from "./range-picker/range-picker";
 export { default as InfiniteScroll } from "./infinite-scroll/infinite-scroll";
 export { default as ReactQueryDemo1 } from "./react-query/demo1/demo1";
 export { default as React18Batching } from "./react18-batching/react18-batching";
+export { default as ParallelQueries } from "./queries-in-parallel/queries-in-parallel";
+export { default as Countries } from "./countries/countries";

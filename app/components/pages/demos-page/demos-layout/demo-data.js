@@ -6,6 +6,8 @@ import {
   InfiniteScroll,
   ReactQueryDemo1,
   React18Batching,
+  ParallelQueries,
+  Countries,
 } from "../demos";
 
 export const collectionFilter = [
@@ -27,8 +29,7 @@ export const collection = [
   },
   {
     title: "Login Form",
-    description:
-      "A login form demo that uses antd and tailwind dark mode complete with tests",
+    description: "A login form demo that uses antd and tailwind dark mode complete with tests",
     component: LoginForm,
     tags: ["nextjs-13", "react", "tailwind", "rtl", "antd"],
   },
@@ -40,8 +41,7 @@ export const collection = [
   },
   {
     title: "RangePicker",
-    description:
-      "Using the antd RangePicker to message the user when the range is inalid ",
+    description: "Using the antd RangePicker to message the user when the range is inalid ",
     component: RangePicker,
     tags: ["nextjs-13", "react", "antd"],
   },
@@ -53,16 +53,26 @@ export const collection = [
   },
   {
     title: "Manage Users",
-    description:
-      "Using ant components to query and mutate users with @tanstack/query",
+    description: "Using ant components to query and mutate users with @tanstack/query",
     component: Users,
     tags: ["nextjs-13", "react", "@tanstack/query", "antd"],
   },
   {
     title: "React 18 Batching",
-    description:
-      "Watch how React 18 batches many set state calls and only renders once",
+    description: "Watch how React 18 batches many set state calls and only renders once",
     component: React18Batching,
     tags: ["nextjs-13", "react"],
+  },
+  {
+    title: "Tanstack Query parallel queries",
+    description: "Watch how @tanstack/query run three queries in parellel without extra code",
+    component: ParallelQueries,
+    tags: ["nextjs-13", "react", "@tanstack/query"],
+  },
+  {
+    title: "Tanstack Query Countries",
+    description: "See canonical filtered list using @tanstack/query",
+    component: Countries,
+    tags: ["nextjs-13", "react", "@tanstack/query"],
   },
 ];
