@@ -59,11 +59,11 @@ const resources = {
       );
     },
 
-    CountriesList: ({ countries, search }: any) => {
+    CountriesList: ({ filteredCountries, search }: any) => {
       return (
         <div className="w-full border  justify-around ">
           <ul className="card-grid">
-            {search(countries).map((item: any) => (
+            {filteredCountries.map((item: any) => (
               <li key={item.name}>
                 <article className="card" key={item.alpha3Code}>
                   <div className="card-image">
@@ -102,6 +102,13 @@ const {
   constants: { searchParam },
 } = resources;
 
+/*
+TODO:
+- move filtering from client to server
+- show off react-query filtering
+- use search-params to populate filter
+
+*/
 function App() {
   const [q, setQ] = useState("");
   const [filterParam, setFilterParam] = useState("All");
@@ -134,7 +141,7 @@ function App() {
   return (
     <>
       <Filters {...{ q, setQ, filterParam, setFilterParam, search, searchCount, totalCount }} />
-      <CountriesList {...{ countries, search }} />
+      <CountriesList {...{ filteredCountries, search }} />
     </>
   );
 }
