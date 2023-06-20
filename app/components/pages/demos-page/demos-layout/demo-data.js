@@ -8,6 +8,7 @@ import {
   React18Batching,
   ParallelQueries,
   Countries,
+  IntervalTree,
 } from "../demos";
 
 export const collectionFilter = [
@@ -74,5 +75,11 @@ export const collection = [
     description: "See canonical filtered list using @tanstack/query",
     component: Countries,
     tags: ["nextjs-13", "react", "@tanstack/query"],
+  },
+  {
+    title: "Interval Tree",
+    description: "See how an interval tree can optimize searches for time intervals",
+    component: IntervalTree,
+    tags: ["nextjs-13", "react", "interval-tree"],
   },
 ];
