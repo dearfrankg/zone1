@@ -14,6 +14,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
     "@flatten-js/interval-tree": "^1.0.20",
+    "@heroicons/react": "^1.0.6",
     "@tanstack/react-query": "^4.29.12",
     "@tanstack/react-query-devtools": "^4.29.12",
     "axios": "^1.4.0",
@@ -24,7 +25,6 @@
     "react-infinite-scroll-component": "^6.1.0"
   },
   "devDependencies": {
-    "@heroicons/react": "^1.0.6",
     "@tanstack/eslint-plugin-query": "^4.29.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
