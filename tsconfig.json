@@ -8,15 +8,16 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["/app/components/*"]
+      "@components/*": ["app/components/*"],
+      "@utils/*": ["app/utils/*"]
     },
     "plugins": [
       {
@@ -32,5 +33,5 @@
     "app/components/**/*.ts",
     "app/components/**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./vscode"]
 }

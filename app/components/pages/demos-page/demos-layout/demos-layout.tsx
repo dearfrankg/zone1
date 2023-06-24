@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Header, Menu } from "/app/components";
+import { Header, Menu } from "@components/index";
 import { collection, collectionFilter } from "./demo-data";
 import { Select } from "antd";
 
 const splash = {
   title: "Demo Collection",
-  description:
-    "A collection of demos that show how to use modern web tools in 2023",
+  description: "A collection of demos that show how to use modern web tools in 2023",
   tags: [],
   component: () => null,
 };
@@ -29,12 +28,7 @@ export default function DemosPage() {
     return menuFilter.every((filter: any) => item.tags.includes(filter));
   });
 
-  const {
-    title,
-    description,
-    tags,
-    component: Component,
-  } = filteredCollection[menuIndex] || splash;
+  const { title, description, tags, component: Component } = filteredCollection[menuIndex] || splash;
 
   return (
     <div className="flex w-3/4 m-8 p-4 mx-auto border-indigo-500 border-2">
