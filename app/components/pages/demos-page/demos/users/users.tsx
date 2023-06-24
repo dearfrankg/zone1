@@ -1,12 +1,7 @@
 "use client";
 import "./users.css";
 import React, { useState } from "react";
-import {
-  useQuery,
-  useMutation,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { useQuery, useMutation, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Form, Input, Button, Table, Modal } from "antd";
 
 const queryClient = new QueryClient();
@@ -34,20 +29,17 @@ const updateUser = async (userId: any, values: any) => {
 const Users = () => {
   const [form] = Form.useForm();
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState<any>(null);
 
   const { data: users, isLoading } = useQuery(["users"], getUsers);
 
-  const updateUserMutation = useMutation(
-    (values: any) => updateUser(selectedUser.id, values),
-    {
-      onSuccess: () => {
-        setModalVisible(false);
-        form.resetFields();
-        queryClient.invalidateQueries(["users"]);
-      },
-    }
-  );
+  const updateUserMutation = useMutation((values: any) => updateUser(selectedUser.id, values), {
+    onSuccess: () => {
+      setModalVisible(false);
+      form.resetFields();
+      queryClient.invalidateQueries(["users"]);
+    },
+  });
 
   const handleRowClick = (record: any) => {
     setSelectedUser(record);
@@ -81,33 +73,16 @@ const Users = () => {
           onClick: () => handleRowClick(record),
         })}
       />
-      <Modal
-        title="Edit User"
-        open={modalVisible}
-        onOk={form.submit}
-        onCancel={handleModalClose}
-      >
+      <Modal title="Edit User" open={modalVisible} onOk={form.submit} onCancel={handleModalClose}>
         <Form form={form} onFinish={handleFormSubmit} layout="vertical">
-          <Form.Item
-            name="name"
-            label="Name"
-            rules={[{ required: true, message: "Please enter the name" }]}
-          >
+          <Form.Item name="name" label="Name" rules={[{ required: true, message: "Please enter the name" }]}>
             <Input />
           </Form.Item>
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[{ required: true, message: "Please enter the email" }]}
-          >
+          <Form.Item name="email" label="Email" rules={[{ required: true, message: "Please enter the email" }]}>
             <Input />
           </Form.Item>
           <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              loading={updateUserMutation.isLoading}
-            >
+            <Button type="primary" htmlType="submit" loading={updateUserMutation.isLoading}>
               Save
             </Button>
           </Form.Item>

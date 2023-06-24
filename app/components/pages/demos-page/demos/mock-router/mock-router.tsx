@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Demo, Button } from "/app/components";
+import { Button } from "@components/index";
 
 const MockRouter = () => {
   const router = useRouter();
