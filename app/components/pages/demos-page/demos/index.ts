@@ -8,3 +8,4 @@ export { default as React18Batching } from "./react18-batching/react18-batching"
 export { default as ParallelQueries } from "./queries-in-parallel/queries-in-parallel";
 export { default as Countries } from "./countries/countries";
 export { default as IntervalTree } from "./interval-tree/interval-tree";
+export { default as ShadcnUI } from "./shadcn-ui/shadcn-ui";

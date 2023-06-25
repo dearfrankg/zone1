@@ -2,7 +2,7 @@ import { renderHook } from "@testing-library/react-hooks";
 import { ReactNode } from "react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { QueryCache, QueryClient, QueryClientProvider } from "react-query";
+import { QueryCache, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { responseForPage0, responseForPage1, responseForPage2 } from "../fixtures";
 import { useUsersQuery } from "../useInfiniteQuery";
 
@@ -36,14 +36,14 @@ const server = setupServer(
   })
 );
 
-beforeAll(() => server.listen());
-afterEach(() => {
-  server.resetHandlers();
-  queryCache.clear();
-});
-afterAll(() => server.close());
-
 describe("useUsersQuery", () => {
+  beforeAll(() => server.listen());
+  afterEach(() => {
+    server.resetHandlers();
+    queryCache.clear();
+  });
+  afterAll(() => server.close());
+
   it("fetches the users list", async () => {
     // Fetches Page 0
     const { result, waitFor } = renderHook(() => useUsersQuery(), { wrapper });

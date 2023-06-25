@@ -1,6 +1,7 @@
 import React from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { render, screen, fireEvent } from "@testing-library/react";
-import LoginForm from "./page";
+import LoginForm from "./login";
 
 describe("LoginForm", () => {
   test("renders login form", () => {
@@ -16,8 +17,8 @@ describe("LoginForm", () => {
     render(<LoginForm />);
 
     // Simulate user input
-    const emailInput = screen.getByLabelText("Email");
-    const passwordInput = screen.getByLabelText("Password");
+    const emailInput = screen.getByLabelText("Email") as HTMLInputElement;
+    const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
     fireEvent.change(passwordInput, { target: { value: "password123" } });
 

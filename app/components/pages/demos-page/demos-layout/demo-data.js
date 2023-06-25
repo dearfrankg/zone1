@@ -9,13 +9,16 @@ import {
   ParallelQueries,
   Countries,
   IntervalTree,
+  ShadcnUI,
 } from "../demos";
+
+const TANSTACK_QUERY = "@tanstack/query";
 
 export const collectionFilter = [
   { label: "Nextjs 13", value: "nextjs-13" },
   { label: "React", value: "react" },
   { label: "Tailwind", value: "tailwind" },
-  { label: "Tanstack Query", value: "@tanstack/query" },
+  { label: "Tanstack Query", value: TANSTACK_QUERY },
   { label: "React Testing Library", value: "rtl" },
   { label: "Ant Design Components", value: "antd" },
   { label: "Test Nextjs Router", value: "test-nextjs-router" },
@@ -26,7 +29,7 @@ export const collection = [
     title: "Infinite Scroll",
     description: "Load an infinite scroller with @tanstack/query",
     component: InfiniteScroll,
-    tags: ["nextjs-13", "react", "@tanstack/query", "rtl"],
+    tags: ["nextjs-13", "react", TANSTACK_QUERY, "rtl"],
   },
   {
     title: "Login Form",
@@ -50,13 +53,13 @@ export const collection = [
     title: "Manage Blog Posts",
     description: "Query and Mutate blog posts with @tanstack/query",
     component: ReactQueryDemo1,
-    tags: ["nextjs-13", "react", "tailwind", "@tanstack/query"],
+    tags: ["nextjs-13", "react", "tailwind", TANSTACK_QUERY],
   },
   {
     title: "Manage Users",
     description: "Using ant components to query and mutate users with @tanstack/query",
     component: Users,
-    tags: ["nextjs-13", "react", "@tanstack/query", "antd"],
+    tags: ["nextjs-13", "react", TANSTACK_QUERY, "antd"],
   },
   {
     title: "React 18 Batching",
@@ -68,18 +71,24 @@ export const collection = [
     title: "Tanstack Query parallel queries",
     description: "Watch how @tanstack/query run three queries in parellel without extra code",
     component: ParallelQueries,
-    tags: ["nextjs-13", "react", "@tanstack/query"],
+    tags: ["nextjs-13", "react", TANSTACK_QUERY],
   },
   {
     title: "Tanstack Query Countries",
     description: "See canonical filtered list using @tanstack/query",
     component: Countries,
-    tags: ["nextjs-13", "react", "@tanstack/query"],
+    tags: ["nextjs-13", "react", TANSTACK_QUERY],
   },
   {
     title: "Interval Tree",
     description: "See how an interval tree can optimize searches for time intervals",
     component: IntervalTree,
     tags: ["nextjs-13", "react", "interval-tree"],
+  },
+  {
+    title: "Shadcn UI supports A11Y and Tailwind",
+    description: "See skeleton demo",
+    component: ShadcnUI,
+    tags: ["nextjs-13", "react", "shadcn-ui"],
   },
 ];
