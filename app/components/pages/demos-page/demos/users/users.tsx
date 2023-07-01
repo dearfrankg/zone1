@@ -1,4 +1,5 @@
 "use client";
+
 import "./users.css";
 import React, { useState } from "react";
 import { useQuery, useMutation, QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -6,15 +7,19 @@ import { Form, Input, Button, Table, Modal } from "antd";
 
 const queryClient = new QueryClient();
 
+// eslint-disable-next-line prefer-destructuring
 const API_URL = process.env.API_URL;
+
+type User = {
+  id: string;
+} | null;
 
 const getUsers = async () => {
   const response = await fetch(`${API_URL}/users`);
-  const data = await response.json();
-  return data;
+  return response.json();
 };
 
-const updateUser = async (userId: any, values: any) => {
+const updateUser = async (userId: string, values: User) => {
   const response = await fetch(`https://api.example.com/users/${userId}`, {
     method: "PUT",
     body: JSON.stringify(values),
@@ -22,18 +27,17 @@ const updateUser = async (userId: any, values: any) => {
       "Content-Type": "application/json",
     },
   });
-  const data = await response.json();
-  return data;
+  return response.json();
 };
 
 const Users = () => {
   const [form] = Form.useForm();
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedUser, setSelectedUser] = useState<any>(null);
+  const [selectedUser, setSelectedUser] = useState<User>(null);
 
   const { data: users, isLoading } = useQuery(["users"], getUsers);
 
-  const updateUserMutation = useMutation((values: any) => updateUser(selectedUser.id, values), {
+  const updateUserMutation = useMutation((values: User) => updateUser(selectedUser!.id, values), {
     onSuccess: () => {
       setModalVisible(false);
       form.resetFields();
@@ -41,13 +45,13 @@ const Users = () => {
     },
   });
 
-  const handleRowClick = (record: any) => {
+  const handleRowClick = (record: User) => {
     setSelectedUser(record);
     setModalVisible(true);
     form.setFieldsValue(record);
   };
 
-  const handleFormSubmit = (values: any) => {
+  const handleFormSubmit = (values: User) => {
     updateUserMutation.mutate(values);
   };
 
@@ -69,7 +73,7 @@ const Users = () => {
         loading={isLoading}
         rowKey="id"
         style={{ cursor: "pointer" }}
-        onRow={(record) => ({
+        onRow={record => ({
           onClick: () => handleRowClick(record),
         })}
       />
