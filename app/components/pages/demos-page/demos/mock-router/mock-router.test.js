@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useRouter } from "next/navigation";
-import MyComponent from "./page";
+import MyComponent from "./mock-router";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
@@ -16,13 +16,13 @@ describe("MyComponent", () => {
 
   test("renders component correctly", () => {
     render(<MyComponent />);
-    expect(screen.getByText("My Component")).toBeInTheDocument();
+    expect(screen.getByText("Go to another route")).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   test("navigates to /users on button click", () => {
     render(<MyComponent />);
     fireEvent.click(screen.getByRole("button"));
-    expect(mockRouter.push).toHaveBeenCalledWith("/users");
+    expect(mockRouter.push).toHaveBeenCalledWith("/demos");
   });
 });
