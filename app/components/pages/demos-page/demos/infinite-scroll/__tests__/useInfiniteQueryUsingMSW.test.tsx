@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook, waitFor } from "@testing-library/react";
 import { ReactNode } from "react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
@@ -36,7 +36,7 @@ const server = setupServer(
   })
 );
 
-describe.skip("useUsersQuery", () => {
+describe("useUsersQuery", () => {
   beforeAll(() => server.listen());
   afterEach(() => {
     server.resetHandlers();
@@ -44,10 +44,11 @@ describe.skip("useUsersQuery", () => {
   });
   afterAll(() => server.close());
 
-  it("fetches the users list", async () => {
+  it.skip("fetches the users list", async () => {
     // Fetches Page 0
-    const { result, waitFor } = renderHook(() => useUsersQuery(), { wrapper });
+    const { result } = renderHook(() => useUsersQuery(), { wrapper });
     await waitFor(() => result.current.isSuccess);
+
     expect(result.current.data?.pages[0]).toStrictEqual({
       results: responseForPage0.data,
       next: 1,

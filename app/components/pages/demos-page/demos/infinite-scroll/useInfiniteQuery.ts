@@ -4,7 +4,6 @@ import axiosClient from "./axiosClient";
 import { UsersPage } from "./types";
 
 export async function getData({ pageParam = 0 }) {
-  // Update the http client to use axiosClient instead of fetch api
   const response = await axiosClient({
     url: `/data/v1/user?page=${pageParam}&limit=50`,
     method: "GET",
@@ -25,9 +24,7 @@ export async function getData({ pageParam = 0 }) {
 }
 
 export const useUsersQuery = () => {
-  const query = useInfiniteQuery<UsersPage, Error>(["users"], getData, {
-    getNextPageParam: (lastPage) => lastPage.next,
+  return useInfiniteQuery<UsersPage, Error>(["users"], getData, {
+    getNextPageParam: lastPage => lastPage.next,
   });
-
-  return query;
 };

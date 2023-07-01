@@ -3,13 +3,13 @@
 import "./index.css";
 import React from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
+import InfiniteScroll from "react-infinite-scroll-component";
 import reactQueryClient from "./queryClient";
 import CreateUser from "./CreateUser";
 import { useUsersQuery } from "./useInfiniteQuery";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { User } from "./types";
 
-const App = () => {
+function App() {
   const { data, error, fetchNextPage, hasNextPage, status } = useUsersQuery();
 
   if (status === "loading") {
@@ -60,8 +60,8 @@ const App = () => {
             </p>
           }
         >
-          {data.pages.map((group, i) => (
-            <React.Fragment key={i}>
+          {data.pages.map(group => (
+            <React.Fragment key={group.next}>
               {group.results.map((user: User) => (
                 <p key={user.firstName + user.lastName}>
                   {user.firstName} {user.lastName}
@@ -73,7 +73,7 @@ const App = () => {
       </div>
     </div>
   );
-};
+}
 
 export default function Root() {
   return (
