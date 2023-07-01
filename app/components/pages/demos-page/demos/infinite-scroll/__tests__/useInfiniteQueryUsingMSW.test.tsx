@@ -48,9 +48,8 @@ describe("useUsersQuery", () => {
     // Fetches Page 0
     const { result } = renderHook(() => useUsersQuery(), { wrapper });
 
-    // await waitFor(() => result.current.isSuccess); -- does not work
-    await waitFor(() => result.current.isFetching);
-    await waitFor(() => !result.current.isFetching);
+    await waitFor(() => !result.current.isSuccess);
+    await waitFor(() => result.current.isSuccess);
 
     expect(result.current.data?.pages[0]).toStrictEqual({
       results: responseForPage0.data,
