@@ -86,7 +86,7 @@ export const collection = [
     tags: ["nextjs-13", "react", "interval-tree"],
   },
   {
-    title: "Shadcn UI supports A11Y and Tailwind",
+    title: "Intro to Shadcn UI - Tailwind components",
     description: "See skeleton demo",
     component: ShadcnUI,
     tags: ["nextjs-13", "react", "shadcn-ui"],

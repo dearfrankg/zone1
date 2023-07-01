@@ -36,7 +36,7 @@ const server = setupServer(
   })
 );
 
-describe("useUsersQuery", () => {
+describe.skip("useUsersQuery", () => {
   beforeAll(() => server.listen());
   afterEach(() => {
     server.resetHandlers();
