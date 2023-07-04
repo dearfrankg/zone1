@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+
+import React, { useState } from "react";
 import { Header, Menu } from "@components/index";
-import { collection, collectionFilter } from "./demo-data";
 import { Select } from "antd";
+import { collection, collectionFilter } from "./demo-data";
 
 const splash = {
   title: "Demo Collection",
@@ -11,24 +12,28 @@ const splash = {
   component: () => null,
 };
 
+interface ItemProps {
+  tags: string[];
+}
+
 export default function DemosPage() {
-  const [menuFilter, setMenuFilter] = useState([]);
+  const [menuFilter, setMenuFilter] = useState<string[]>([]);
   const [menuIndex, setMenuIndex] = useState(-1);
 
-  const handleMenuClick = (menuIndex: number) => {
-    setMenuIndex(menuIndex);
+  const handleMenuClick = (_menuIndex: number) => {
+    setMenuIndex(_menuIndex);
   };
 
-  const handleChangeFilter = (value: any) => {
+  const handleChangeFilter = (value: string[]) => {
     setMenuIndex(0);
     setMenuFilter(value);
   };
 
-  const filteredCollection = collection.filter((item: any) => {
-    return menuFilter.every((filter: any) => item.tags.includes(filter));
+  const filteredCollection = collection.filter((item: ItemProps) => {
+    return menuFilter.every((filter: string) => item.tags.includes(filter));
   });
 
-  const { title, description, tags, component: Component } = filteredCollection[menuIndex] || splash;
+  const { title, description, tags, component: Component } = filteredCollection[Number(menuIndex)] || splash;
 
   return (
     <div className="flex w-3/4 m-8 p-4 mx-auto border-indigo-500 border-2">

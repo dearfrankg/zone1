@@ -9,3 +9,4 @@ export { default as ParallelQueries } from "./queries-in-parallel/queries-in-par
 export { default as Countries } from "./countries/countries";
 export { default as IntervalTree } from "./interval-tree/interval-tree";
 export { default as ShadcnUI } from "./shadcn-ui/shadcn-ui";
+export { default as AdvQuery } from "./adv-query/adv-query";

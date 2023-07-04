@@ -70,5 +70,12 @@ module.exports = {
     ],
     "no-nested-ternary": "off",
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+      },
+    ],
   },
 };

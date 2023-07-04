@@ -7,6 +7,7 @@ const nextConfig = {
   env: {
     API_URL: IS_DEV_ENV ? process.env.DEV_API_URL : process.env.PROD_API_URL,
     RAWG: process.env.RAWG,
+    GITHUB_PAT: process.env.GITHUB_PAT,
   },
 
   eslint: {

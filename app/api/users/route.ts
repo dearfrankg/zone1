@@ -5,8 +5,7 @@ const users = [
   { id: 2, name: "Jane Smith", email: "jane@example.com" },
 ];
 
-const waitFor = (ms: any) =>
-  new Promise((resolve) => setTimeout(() => resolve(ms), ms));
+const waitFor = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function GET() {
   return waitFor(200).then(() => NextResponse.json(users));

@@ -10,6 +10,7 @@ import {
   Countries,
   IntervalTree,
   ShadcnUI,
+  AdvQuery,
 } from "../demos";
 
 const TANSTACK_QUERY = "@tanstack/query";
@@ -90,5 +91,11 @@ export const collection = [
     description: "See skeleton demo",
     component: ShadcnUI,
     tags: ["nextjs-13", "react", "shadcn-ui"],
+  },
+  {
+    title: "Advanced Tanstack Query",
+    description: "See code",
+    component: AdvQuery,
+    tags: ["nextjs-13", "react", TANSTACK_QUERY],
   },
 ];
